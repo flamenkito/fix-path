@@ -36,7 +36,7 @@ function walk(dir) {
       ).then(foldersContents => {
         resolve(
           foldersContents.reduce(
-            (all: string[], folderContents: string[]) =>
+            (all: {}[], folderContents: {}) =>
               all.concat(folderContents),
             []
           )
@@ -81,12 +81,19 @@ function getRootDirNames(distDir: string) {
   );
 }
 
+interface Changes {
+  jsName: string;
+  from: string;
+  path: string;
+  to: string;
+}
+
 const replacePaths = (rootDirNames: string[]) => async (jsName: string) => {
   let jsFile = readFileSync(jsName).toString();
 
   const re = /(require\(\"((?![\.|\@]).+[\w\/\.\-]*)+\"\))+/g;
 
-  const replace = [];
+  const replace: Changes[] = [];
 
   for (let m = re.exec(jsFile); m; m = re.exec(jsFile)) {
     const from = m[1];

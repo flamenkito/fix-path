@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "composite": true,
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
-    "allowJs": true,
+    "strict": true,
     "outDir": "./dist",
     "baseUrl": "./src",
     "lib": [

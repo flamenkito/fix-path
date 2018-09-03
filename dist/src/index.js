@@ -80,6 +80,7 @@ const replacePaths = (rootDirNames) => (jsName) => __awaiter(this, void 0, void 
             const depth = jsName.split('/').map(() => '..');
             depth.pop();
             depth.pop();
+            depth.pop();
             if (depth.length === 0) {
                 depth.push('./');
             }

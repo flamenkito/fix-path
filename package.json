@@ -9,8 +9,7 @@
   "scripts": {
     "test": "nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "build": "rm -rf dist/ && tsc --build",
-    "publish": "npm run build && git add . && git commit -m 'build' && git push && npm publish"
+    "build": "rm -rf dist/ && tsc --build"
   },
   "nyc": {
     "include": [

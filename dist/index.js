@@ -119,3 +119,5 @@ fix()
 })
     .catch(err => console.error(err));
 //# sourceMappingURL=index.js.map
+
+module.exports = walk;

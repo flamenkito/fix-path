@@ -38,6 +38,7 @@ function walk(dir) {
         });
     });
 }
+exports.walk = walk;
 function getDirectories(source) {
     const isDirectory = (dir) => fs_1.lstatSync(dir).isDirectory();
     return fs_1.readdirSync(source)

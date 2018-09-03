@@ -11,7 +11,7 @@ import { join } from 'path';
 
 import * as clc from 'cli-color';
 
-function walk(dir) {
+export function walk(dir) {
   return new Promise((resolve, reject) => {
     readdir(dir, (error, files) => {
       if (error) {

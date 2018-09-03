@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import {
   readdir,
   stat,
@@ -58,7 +60,7 @@ interface CompilerOptions {
 }
 
 async function getCompilerOptions(): Promise<CompilerOptions> {
-  const tsconfig = readFileSync('./tsconfig.json').toString();
+  const tsconfig = readFileSync('tsconfig.json').toString();
   const { compilerOptions } = JSON.parse(tsconfig);
   return compilerOptions;
 }
@@ -98,7 +100,7 @@ const replacePaths = (rootDirNames: string[]) => async (jsName: string) => {
   for (let m = re.exec(jsFile); m; m = re.exec(jsFile)) {
     const from = m[1];
     const path = m[2];
-    if (rootDirNames.some(dir => path.startsWith(dir))) {
+    if (rootDirNames.some(dir => path === dir || path.startsWith(dir + '/'))) {
       const depth = jsName.split('/').map(() => '..');
       depth.pop();
       depth.pop();

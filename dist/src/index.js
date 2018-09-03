@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -47,7 +48,7 @@ function getDirectories(source) {
 }
 function getCompilerOptions() {
     return __awaiter(this, void 0, void 0, function* () {
-        const tsconfig = fs_1.readFileSync('./tsconfig.json').toString();
+        const tsconfig = fs_1.readFileSync('../tsconfig.json').toString();
         const { compilerOptions } = JSON.parse(tsconfig);
         return compilerOptions;
     });

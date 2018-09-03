@@ -1,13 +1,16 @@
 {
   "name": "flamenkito-fix-path",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Fix typescript absolute path",
   "main": "index.js",
+  "bin": {
+    "fix-path": "./dist/src/index.js"
+  },
   "scripts": {
     "test": "nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "tsc",
-    "build": "tsc --build"
+    "build": "rm -rf dist/ && tsc --build"
   },
   "nyc": {
     "include": [

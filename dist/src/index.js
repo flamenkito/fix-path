@@ -48,7 +48,7 @@ function getDirectories(source) {
 }
 function getCompilerOptions() {
     return __awaiter(this, void 0, void 0, function* () {
-        const tsconfig = fs_1.readFileSync('../tsconfig.json').toString();
+        const tsconfig = fs_1.readFileSync('tsconfig.json').toString();
         const { compilerOptions } = JSON.parse(tsconfig);
         return compilerOptions;
     });
@@ -76,7 +76,7 @@ const replacePaths = (rootDirNames) => (jsName) => __awaiter(this, void 0, void 
     for (let m = re.exec(jsFile); m; m = re.exec(jsFile)) {
         const from = m[1];
         const path = m[2];
-        if (rootDirNames.some(dir => path.startsWith(dir))) {
+        if (rootDirNames.some(dir => path === dir || path.startsWith(dir + '/'))) {
             const depth = jsName.split('/').map(() => '..');
             depth.pop();
             depth.pop();

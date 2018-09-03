@@ -1,6 +1,6 @@
 {
   "name": "flamenkito-fix-path",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Fix typescript absolute path",
   "main": "index.js",
   "bin": {
@@ -9,8 +9,8 @@
   "scripts": {
     "test": "nyc mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "start": "tsc && node dist/src/index.js",
-    "build": "rm -rf dist/ && tsc --build"
+    "build": "rm -rf dist/ && tsc --build",
+    "publish": "npm run build && git push && npm publish"
   },
   "nyc": {
     "include": [

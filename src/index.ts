@@ -104,6 +104,7 @@ const replacePaths = (rootDirNames: string[]) => async (jsName: string) => {
       const depth = jsName.split('/').map(() => '..');
       depth.pop();
       depth.pop();
+      depth.pop();
       if (depth.length === 0) {
         depth.push('./');
       }
